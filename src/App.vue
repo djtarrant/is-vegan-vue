@@ -9,6 +9,7 @@
 import Header from './components/Header.vue'
 import IsVegan from './components/IsVegan.vue'
 
+
 export default {
   name: 'App',
   components: {
