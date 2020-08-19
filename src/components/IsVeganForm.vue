@@ -21,6 +21,7 @@ export default {
   },
   methods:{
       handleSubmit(){
+          this.$emit('query-updated',this.query);//allows the query to be passed to parent component
           console.log("Query:"+this.query);
       }
   },

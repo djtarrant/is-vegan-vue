@@ -20,7 +20,8 @@
 </template>
 
 <script>
-const query = 'pasta';
+const query = this.query;
+//console.log(this.query);
 const url = `http://localhost:5000/isVegan/${query}`;
 
 export default {
@@ -31,6 +32,9 @@ export default {
       return{
           foodItems:[]
       }
+  },
+  props:{
+    query: {required:true, type: String, default: 'test'}
   },
   mounted: function(){
       fetch(url, { method:'get' })

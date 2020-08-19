@@ -1,15 +1,16 @@
 <template>
   <div id="app">
     <Header />
-    <IsVeganForm />
-    <IsVegan />
+    <IsVeganForm v-on:query-updated="updateQuery($event)" />
+    <IsVegan v-bind:query="queryParent" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import IsVeganForm from './components/IsVeganForm.vue'
 import IsVegan from './components/IsVegan.vue'
+import IsVeganForm from './components/IsVeganForm.vue'
+
 
 
 export default {
@@ -18,8 +19,22 @@ export default {
     Header,
     IsVeganForm, 
     IsVegan
+  },
+  data(){
+      return{
+        queryParent:'pasta'
+      }
+  },
+  methods: {
+    updateQuery(queryChild){
+      console.log('Child:'+queryChild);
+      this.queryParent = queryChild;
+      console.log('Parent:'+this.queryParent);
+    }
   }
 }
+
+
 </script>
 
 <style>
