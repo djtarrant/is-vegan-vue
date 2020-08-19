@@ -1,6 +1,6 @@
 <template>
   <div id="isVegan">
-    <h1>Is Vegan Vue App</h1>
+    <h2>Food Listing</h2>
     <table>
         <tr>
             <td>ID</td>

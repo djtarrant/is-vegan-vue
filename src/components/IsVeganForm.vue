@@ -2,8 +2,8 @@
   <div id="isVeganForm">
     <form>
       <label for="query">Enter Food:</label>
-      <input type="text" id="query" v-model="query">
-      <button @click="handleSubmit()">Check if it is Vegan?</button>  
+      <input type="text" id="query" v-model="query" autocomplete="false">
+      <button @click.prevent="handleSubmit()">Check if it is Vegan?</button>  
     </form>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   },
   methods:{
       handleSubmit(){
-          console.log("Query:"+query);
+          console.log("Query:"+this.query);
       }
   },
   mounted: function(){

@@ -1,6 +1,7 @@
 <template>
   <div id="header">
-    Links go here
+    <h1>IsVegan Vue Application</h1>
+    Links go here<br/>
   </div>
 </template>
 
