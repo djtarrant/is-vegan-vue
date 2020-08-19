@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <Header />
+    <IsVeganForm />
     <IsVegan />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import IsVeganForm from './components/IsVeganForm.vue'
 import IsVegan from './components/IsVegan.vue'
 
 
@@ -14,6 +16,7 @@ export default {
   name: 'App',
   components: {
     Header,
+    IsVeganForm, 
     IsVegan
   }
 }
