@@ -20,9 +20,7 @@
 </template>
 
 <script>
-const query = this.query;
-//console.log(this.query);
-const url = `http://localhost:5000/isVegan/${query}`;
+
 
 export default {
   name: 'IsVegan',
@@ -30,14 +28,23 @@ export default {
   },
   data(){
       return{
-          foodItems:[]
+          foodItems:[],
+          url:`http://localhost:5000/isVegan/`
       }
   },
-  props:{
-    query: {required:true, type: String, default: 'test'}
+  props:['query'],
+  watch: { 
+    query: function() { // watch it
+      this.getFoodList();
+    }
   },
-  mounted: function(){
-      fetch(url, { method:'get' })
+  mounted: function() {
+    this.getFoodList()
+  },
+  methods:{
+    getFoodList(){
+      console.log(this.url+this.query);
+      fetch(this.url+this.query, { method:'get' })
       .then((response) => {
         return response.json();
       }
@@ -46,11 +53,13 @@ export default {
         console.log(response);
         this.foodItems = response.foodItems;
       })
+    }
   }
 }
 </script>
 
 <style>
 #isVegan {
+  text-align: left;
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <IsVeganForm v-on:query-updated="updateQuery($event)" />
-    <IsVegan v-bind:query="queryParent" />
+    <IsVegan v-bind:query="queryParent || 'pasta'" />
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   },
   data(){
       return{
-        queryParent:'pasta'
+        queryParent:null
       }
   },
   methods: {
