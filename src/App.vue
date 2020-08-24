@@ -1,36 +1,21 @@
 <template>
   <div id="app">
     <Header />
-    <IsVeganForm v-on:query-updated="updateQuery($event)" />
-    <IsVegan v-bind:query="queryParent || 'pasta'" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import IsVegan from './components/IsVegan.vue'
-import IsVeganForm from './components/IsVeganForm.vue'
-
-
+import Header from './components/Header.vue';
 
 export default {
   name: 'App',
   components: {
-    Header,
-    IsVeganForm, 
-    IsVegan
+    Header
   },
   data(){
-      return{
-        queryParent:null
-      }
   },
   methods: {
-    updateQuery(queryChild){
-      console.log('Child:'+queryChild);
-      this.queryParent = queryChild;
-      console.log('Parent:'+this.queryParent);
-    }
   }
 }
 
